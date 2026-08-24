@@ -24,7 +24,7 @@ def calculate_profit():
     if revenue_after_discount > 0:
         profit_margin = "Profit Margin"
     else:
-        profit_margin = ""
+        profit_margin = 
     
     if profit > 0:
         status = "Profit"
