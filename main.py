@@ -15,11 +15,16 @@ def calculate_profit():
     cost_price= float(input('Cost Price:'))
     discount = float(input("Discount:"))
     
-    total_revenue = qty_sold * selling_price
-    total_cost = qty_sold * cost_price
-    discount_amount = total_revenue * discount / 100
-    revenue_after_discount = total_revenue - discount
-    profit = total_revenue - revenue_after_discount
+    total_revenue = round(qty_sold * selling_price, 2)
+    total_cost = round(qty_sold * cost_price, 2)
+    discount_amount = round((total_revenue * discount) / 100, 2)
+    revenue_after_discount = round(total_revenue - discount_amount, 2)
+    profit = round (revenue_after_discount - total_cost, 2)  
+    profit_margin = (profit / revenue_after_discount) * 100
+    if revenue_after_discount > 0:
+        profit_margin = "Profit Margin"
+    else:
+        profit_margin = ""
     
     if profit > 0:
         status = "Profit"
@@ -31,7 +36,7 @@ def calculate_profit():
     print("=======================================")
     print("BIZ PROFIT")
     print("=======================================")
-    print (f"Business Name: {business_name}\nProduct Name: {product_name}\nProduct Status: {product_status}\nQuantity Sold: {qty_sold}\nTotal Revenue: {total_revenue}\nTotal Cost: {total_cost}\nProfit: {profit}\nStatus: {status}")
+    print (f"Business Name: {business_name}\nProduct Name: {product_name}\nProduct Status: {product_status}\nQuantity Sold: {qty_sold}\nTotal Revenue: ₦{total_revenue}\nTotal Cost: ₦{total_cost}\nDiscount Amount: ₦{discount_amount}\nRevenue After Discount: ₦{revenue_after_discount}\nProfit: ₦{profit}\nProfit Margin: {profit_margin}%\nStatus: {status}")
 
 calculate_profit()
 
